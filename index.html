@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Backbone Twitter</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Libraries: -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.2.2/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+
+    <!-- Application: -->
+    <script src="js/models.js"></script>
+    <script src="js/collections.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/router.js"></script>
+  </head>
+  <body>
+    <h1>Your reporting history</h1>
+	<form id="search_cname_form" action="" method="POST">
+	    <label for="q">Search Reporting History for</label>
+	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="Enter contact name"/>
+	    <input type="submit" id="button" value="Go" />
+	</form>
+
+	<!-- form id="search_cname_form" action="" method="POST">
+	    <label for="q">Search Reporting History for</label>
+	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="Enter contact name"/>
+	    <input type="submit" id="button" value="Go" />
+	</form -->
+
+	<ul id="reports">
+	</ul>
+	<script type="text/template" id="tweet_template">
+		<li id="r_<%= id %>">
+			<h3>
+				<div>
+				<p><a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&contactname=<%= contactname %>" title="<%= contactname %>"><%= contactname %></a> for <a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&slug=<%= slug %>" title="<%= slug %>"><%= slug %></a></p>
+					<p><span class="date"><%= reportdate %></span></p>
+				</div>
+				<div>
+					<p><%=noted %></p>
+					<a href="<%=archive %>" title="reporting archive">Download archive</a> at 
+					
+				</div>
+			</h3>
+			<p><%= text %>
+		</li>
+	</script>
+  </body>
+</html>
