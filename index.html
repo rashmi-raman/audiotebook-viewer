@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Twitter</title>
+    <title>Backbone Reporting History</title>
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Libraries: -->
@@ -20,7 +20,7 @@
   <body>
     <h1>Your reporting history</h1>
 	<form id="search_cname_form" action="" method="POST">
-	    <label for="q">Search Reporting History for</label>
+	    <label for="q">Search Reporting History</label>
 	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="Enter contact name"/>
 	    <input type="submit" id="button" value="Go" />
 	</form>
@@ -33,20 +33,20 @@
 
 	<ul id="reports">
 	</ul>
-	<script type="text/template" id="tweet_template">
+	<script type="text/template" id="report_template">
 		<li id="r_<%= id %>">
-			<h3>
-				<div>
-				<p><a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&contactname=<%= contactname %>" title="<%= contactname %>"><%= contactname %></a> for <a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&slug=<%= slug %>" title="<%= slug %>"><%= slug %></a></p>
-					<p><span class="date"><%= reportdate %></span></p>
+			
+				<div class="basic">
+					<p><a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&contactname=<%= contactname %>" title="<%= contactname %>"><%= contactname %></a> for story <a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&slug=<%= slug %>" title="<%= slug %>"><%= slug %></a></p>
+					<span class="date"><%= reportdate %></span>
 				</div>
-				<div>
+				<div class="detail">
 					<p><%=noted %></p>
-					<a href="<%=archive %>" title="reporting archive">Download archive</a> at 
+					<a href="<%=archive %>" title="reporting archive">Download archive</a>
 					
 				</div>
-			</h3>
-			<p><%= text %>
+			
+			
 		</li>
 	</script>
   </body>

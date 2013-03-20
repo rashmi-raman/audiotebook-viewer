@@ -7,16 +7,16 @@ $(function() {
 			e.preventDefault();
 			console.log('preventDefault')
 			var self = this;
-			$.getJSON("http://fast-dusk-7046.herokuapp.com/api/reportinghistory?callback=?",{
+			$.getJSON("http://fast-dusk-7046.herokuapp.com/api/reportinghistory?",{
 				format:"json",
 				contactname: $("#q").val()
 			}, function(data) {
-				console.log('in data function')
+				console.log(data)
 				$("#reports li").fadeOut();
-				for(var i in data.results) {
-					console.log(data.results)
-					var report = new Report(data.results[i]);
-					console.log(data.results[i]);
+				for(var i in data.objects) {
+					console.log(data.objects)
+					var report = new Report(data.objects[i]);
+					console.log(data.objects[i]);
 					var reportView = new ReportView({model: report});
 					reportView.render();
 				}

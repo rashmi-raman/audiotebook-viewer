@@ -1,11 +1,12 @@
 body {
-	height: 100%;
-	widht: 100%;
-	background: #c1dfed url(https://twitter.com/images/themes/theme1/bg.png) repeat-x top left;
+	width: 960px;
 	text-align: center;
 	font-family: helvetica, arial, sans-serif;
-	color: #ffffff;
-	text-shadow: 0px -1px 0px rgba(0,0,0,.8);
+	color: #000000;
+	letter-spacing: 0em;
+	
+	margin-left: 10%;
+	margin-right: 20%;
 }
 
 #q {
@@ -38,13 +39,14 @@ body {
 }
 
 #reports li {
-	width: 450px;
-	margin: 0px auto 10px;
+	width: 500px;
+	margin-left:175px;
+	margin-bottom: 30px;
 	display: block;
 	list-style: none inside none;
 	text-align: left;
 	text-shadow: none;
-	color: #444;
+	color: #000000;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -52,10 +54,9 @@ body {
 	border-bottom: 1px solid rgba(255,255,255,.7);
 	background: rgba(255,255,255,.3);
 	display: none;
-}
+	border: #e0e0e0 1px solid;
+	border-radius: 10px;
 
-#reports li img {
-	float: left;
 }
 
 #reports li div {
@@ -66,11 +67,23 @@ body {
 #reports li a {
 	color: #666;
 	text-decoration: none;
-	padding-left: 5px;
+	
 }
 
 #reports li p {
-	font-size: 10pt;
+	font-size: 14px;
 	margin-left: 50px;
-	margin-top: -16px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+
+}
+
+.date{
+	font-size: 12px;
+}
+
+.detail a{
+	font-size: 12px;
+	padding-top: 5px;
+	margin-left: 50px;
 }
