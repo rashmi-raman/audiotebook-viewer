@@ -72,19 +72,26 @@ body {
 
 #reports li p {
 	font-size: 14px;
-	margin-left: 50px;
+	margin-left: 25px;
 	margin-top: 10px;
 	margin-bottom: 5px;
 
 }
 
 .date{
+	padding-top: 5px;
 	font-size: 12px;
-	margin-left: 50px;
+	margin-left: 25px;
+}
+
+.address{
+	padding-top: 5px;
+	font-size: 12px;
+	padding-left: 4px;
 }
 
 .detail a{
 	font-size: 12px;
 	padding-top: 5px;
-	margin-left: 50px;
+	margin-left: 25px;
 }
