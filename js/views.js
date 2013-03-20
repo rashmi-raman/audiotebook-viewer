@@ -7,8 +7,8 @@ $(function() {
 			e.preventDefault();
 			console.log('preventDefault')
 			var self = this;
-			$.getJSON("http://fast-dusk-7046.herokuapp.com/api/reportinghistory",{
-				format:"json", callback:"?",
+			$.getJSON("http://fast-dusk-7046.herokuapp.com/api/reportinghistory?callback=?",{
+				format:"json",
 				contactname: $("#q").val()
 			}, function(data) {
 				console.log('in data function')
