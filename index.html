@@ -21,15 +21,18 @@
     <h1>Your reporting history</h1>
 	<form id="search_cname_form" action="" method="POST">
 	    <label for="q">Search Reporting History</label>
-	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="Enter contact name"/>
+	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="query=value"/>
 	    <input type="submit" id="button" value="Go" />
 	</form>
 
-	<!-- form id="search_cname_form" action="" method="POST">
-	    <label for="q">Search Reporting History for</label>
-	    <input autocomplete="off" autofocus="true" type="text" name="q" id="q" value="" placeholder="Enter contact name"/>
-	    <input type="submit" id="button" value="Go" />
-	</form -->
+	<div id="navcontainer">
+		<ul id="navlist">
+			<li id="sort_asc"><a href="#" id="current">Sort by date</a></li>
+			<li id="sort_desc"><a href="#">Reverse sort by date</a></li>
+			<li id="reset"><a href="#">Clear filter</a></li>
+		</ul>
+	</div>
+	<p id="query_store">Initial</p>
 
 	<ul id="reports">
 	</ul>
@@ -37,7 +40,7 @@
 		<li id="r_<%= id %>">
 			
 				<div class="basic">
-					<p><a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&contactname=<%= contactname %>" title="<%= contactname %>"><%= contactname %></a> for story <a href="http://fast-dusk-7046.herokuapp.com/api/reportinghistory/?format=json&slug=<%= slug %>" title="<%= slug %>"><%= slug %></a></p>
+					<p><a class="contactname" href="#" title="<%= contactname %>"><%= contactname %></a> for story <a class="slug" href="#" title="<%= slug %>"><%= slug %></a></p>
 					<span class="date"><%= reportdate %> </span>at <span class="address" id="sp_<%= id %>"><%=address %></span> 
 				</div>
 				<div class="detail">

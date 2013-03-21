@@ -10,7 +10,7 @@ window.TastypieCollection = Backbone.Collection.extend({
 
 	window.Reports = window.TastypieCollection.extend({
         model: Report,
-        url:'http://fast-dusk-7046.herokuapp.com/api/reportinghistory?format=json'
+        url:'https://fast-dusk-7046.herokuapp.com/api/reportinghistory?format=json'
     });
 
 });
