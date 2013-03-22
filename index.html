@@ -34,6 +34,15 @@
 	</div>
 	<p id="query_store">Initial</p>
 
+	<div id="contactinfo"></div>
+	<script type="text/template" id="contact_template">
+				<div class="contact">
+					<p><img class="profile" src="<%= profilepic %>" alt="<%= contactname %>"><%= contactname %></a>, <%=job %></p>
+					<span class="phone">Phone: <%= phone %> </span>
+				</div>
+				
+	</script>
+
 	<ul id="reports">
 	</ul>
 	<script type="text/template" id="report_template">

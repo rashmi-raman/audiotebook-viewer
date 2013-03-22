@@ -10,6 +10,8 @@ $(function() {
 			var self = this;
 			var query = $("#q").val().split("=")
 
+			console.log(query[1]);
+
 			var args = {}
 
 			if(query.length == 2 && query[0] == 'contactname'){
@@ -20,21 +22,21 @@ $(function() {
 				$("#query_store").text("contactname=" + query[1]);
 				console.log("Stored " + $("#query_store").text())
 			}else if(query.length == 2 && query[0] == 'slug'){
+				$("#contactinfo").html("");
 				args = {
 					format:"json",
 					slug: query[1]
 				}
 				$("#query_store").text("slug=" + query[1]);
 
-			}else{
-				args = {
-					format:"json",
-					contactname: query[1],
-					slug:query[3]
-				}
 			}
 
 			$.getJSON("https://fast-dusk-7046.herokuapp.com/api/reportinghistory?",args, function(data) {
+
+				query = $("#query_store").text().split('=');
+				
+				var param = false;
+				if(query[0] == 'contactname'){param = true;}
 				
 				console.log(data)
 				$("#reports li").fadeOut();
@@ -42,6 +44,11 @@ $(function() {
 					console.log(data.objects)
 					var report = new Report(data.objects[i]);
 					console.log(data.objects[i]);
+					if(i==0 && param==true){
+						var contactView = new ContactView({model:report});
+						contactView.render();
+					}
+
 					var reportView = new ReportView({model: report});
 					reportView.render();
 				}
@@ -78,6 +85,7 @@ $(function() {
 					}
 					$("#query_store").text("contactname=" + link_text);
 				}else if(property == 'slug') {
+					$("#contactinfo").html("");
 					args = {
 						slug:link_text,
 						format:"json"
@@ -88,6 +96,10 @@ $(function() {
 				var self = this;
 
 				$.getJSON("https://fast-dusk-7046.herokuapp.com/api/reportinghistory?",args, function(data) {
+					query = $("#query_store").text().split('=');
+				
+					var param = false;
+					if(query[0] == 'contactname'){param = true;}
 					
 					console.log(data)
 					$("#reports li").fadeOut();
@@ -95,6 +107,10 @@ $(function() {
 						console.log(data.objects)
 						var report = new Report(data.objects[i]);
 						console.log(data.objects[i]);
+						if(i==0 && param==true){
+							var contactView = new ContactView({model:report});
+							contactView.render();
+						}
 						var reportView = new ReportView({model: report});
 						reportView.render();
 					}
@@ -124,9 +140,19 @@ $(function() {
 
 	window.ReportView = Backbone.View.extend({
 		render: function() {
+			console.log("in ReportView");
 			var report = _.template( $("#report_template").html(), this.model.toJSON());
 			$("#reports").append(report);
 			$("#r_" + this.model.get("id")).fadeIn();
+		}
+	});
+
+	window.ContactView = Backbone.View.extend({
+		render: function() {
+			console.log("in ContactView");
+			var report = _.template( $("#contact_template").html(), this.model.toJSON());
+			$("#contactinfo").append(report);
+			$("#contactinfo").fadeIn();
 		}
 	});
 
@@ -152,6 +178,7 @@ $(function() {
  window.ResetView = Backbone.View.extend({
    el: "#navcontainer",
    reset_filter: function() {
+   		$("#contactinfo").html("");
    		console.log('resetting');
       var reports = new Reports(); 
       
@@ -202,6 +229,7 @@ $(function() {
 						format:"json"
 				}
 			}else if(query[0] == 'slug') {
+				$("#contactinfo").html("");
 				args = {
 						slug:query[1],
 						order_by:"reportepoch",
@@ -258,6 +286,7 @@ $(function() {
 						format:"json"
 				}
 			}else if(query[0] == 'slug') {
+				$("#contactinfo").html("");
 				args = {
 						slug:query[1],
 						order_by:"-reportepoch",
