@@ -36,7 +36,7 @@ $(function() {
 				query = $("#query_store").text().split('=');
 				
 				var param = false;
-				if(query[0] == 'contactname'){param = true;}
+				if(query[0] == 'contactname' && $("#contactinfo").html()==""){param = true;}
 				
 				console.log(data)
 				$("#reports li").fadeOut();
@@ -44,7 +44,7 @@ $(function() {
 					console.log(data.objects)
 					var report = new Report(data.objects[i]);
 					console.log(data.objects[i]);
-					if(i==0 && param==true){
+					if(i==data.objects.length-1 && param==true){
 						var contactView = new ContactView({model:report});
 						contactView.render();
 					}
@@ -99,7 +99,7 @@ $(function() {
 					query = $("#query_store").text().split('=');
 				
 					var param = false;
-					if(query[0] == 'contactname'){param = true;}
+					if(query[0] == 'contactname' && $("#contactinfo").html()==""){param = true;}
 					
 					console.log(data)
 					$("#reports li").fadeOut();
@@ -107,7 +107,7 @@ $(function() {
 						console.log(data.objects)
 						var report = new Report(data.objects[i]);
 						console.log(data.objects[i]);
-						if(i==0 && param==true){
+						if(i==data.objects.length-1 && param==true ){
 							var contactView = new ContactView({model:report});
 							contactView.render();
 						}
