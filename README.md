@@ -8,3 +8,5 @@ Our web viewer can be accessed from this link#, once again using Amazon’s S3 s
 The Web Viewer can be used to retrieve information and the archive created containing data from the reportage. It invokes the GET method of the API, retrieves the JSON, analyzes it and then displays it in a list format.
 
 The archive file is also available in a downloadable format from this viewer. 
+
+Watch the viewer in action : www.audiotebook.com
